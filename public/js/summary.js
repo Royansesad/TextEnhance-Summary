@@ -64,8 +64,10 @@ async function summarizeText() {
     btn.disabled = true;
     hideError();
 
-    // Show skeleton loader
+    // Show skeleton loader (hide header during loading)
     resultSection.classList.add('visible');
+    const resultHeader = resultSection.querySelector('.result-header');
+    if (resultHeader) resultHeader.style.display = 'none';
     resultContent.innerHTML = `
     <div class="skeleton skeleton-line" style="width: 95%"></div>
     <div class="skeleton skeleton-line" style="width: 88%"></div>
@@ -96,6 +98,7 @@ async function summarizeText() {
 
         summaryResult = data.summary;
         resultContent.innerHTML = markdownToHTML(data.summary);
+        if (resultHeader) resultHeader.style.display = '';
         resultSection.classList.add('visible');
 
         showToast('success', '<i class="fa-solid fa-circle-check"></i>', `Summary generated in ${selectedMode} mode!`);

@@ -54,8 +54,10 @@ async function enhancePrompt() {
     btn.disabled = true;
     hideError();
 
-    // Show skeleton loader
+    // Show skeleton loader (hide header during loading)
     resultSection.classList.add('visible');
+    const resultHeader = resultSection.querySelector('.result-header');
+    if (resultHeader) resultHeader.style.display = 'none';
     resultContent.innerHTML = `
     <div class="skeleton skeleton-line" style="width: 95%"></div>
     <div class="skeleton skeleton-line" style="width: 88%"></div>
@@ -85,6 +87,7 @@ async function enhancePrompt() {
 
         enhancedResult = data.enhanced;
         resultContent.innerHTML = markdownToHTML(data.enhanced);
+        if (resultHeader) resultHeader.style.display = '';
         resultSection.classList.add('visible');
 
         showToast('success', '<i class="fa-solid fa-wand-magic-sparkles"></i>', 'Prompt enhanced successfully!');
