@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PromptForge — AI Prompt Enhancer</title>
+  <meta name="description" content="Transform messy prompts into powerful, crystal-clear AI instructions with Gemini 2.5 Flash">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="navbar-inner">
+      <a href="/" class="nav-logo">
+        <div class="nav-logo-icon">⚡</div>
+        <span>PromptForge</span>
+      </a>
+      <div class="nav-links">
+        <a href="/" class="nav-link active">
+          ✨ Enhancer
+        </a>
+        <a href="/summary" class="nav-link">
+          📝 Text Summary
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    
+    <!-- Hero -->
+    <section class="hero animate-in">
+      <div class="hero-badge">
+        <span class="dot"></span>
+        Powered by Gemini 2.5 Flash
+      </div>
+      <h1>
+        Transform Chaos Into<br>
+        <span class="gradient-text">Powerful Prompts</span>
+      </h1>
+      <p>
+        Paste your messy, unclear, or rough prompt and watch it transform into a crystal-clear, highly effective AI instruction.
+      </p>
+    </section>
+
+    <!-- Mode Selector -->
+    <div class="mode-selector animate-in" style="animation-delay: 0.1s">
+      <button class="mode-btn active" data-mode="general">
+        <span class="mode-icon">🎯</span>
+        General
+      </button>
+      <button class="mode-btn" data-mode="creative">
+        <span class="mode-icon">🎨</span>
+        Creative
+      </button>
+      <button class="mode-btn" data-mode="technical">
+        <span class="mode-icon">⚙️</span>
+        Technical
+      </button>
+      <button class="mode-btn" data-mode="academic">
+        <span class="mode-icon">📚</span>
+        Academic
+      </button>
+    </div>
+
+    <!-- Prompt Input Card -->
+    <div class="prompt-card animate-in" style="animation-delay: 0.2s">
+      <div class="card-header">
+        <div class="card-header-left">
+          <span class="card-header-icon">📝</span>
+          <h3>Your Raw Prompt</h3>
+        </div>
+        <span class="char-count" id="charCount">0 chars</span>
+      </div>
+      <textarea 
+        class="prompt-textarea" 
+        id="promptInput"
+        placeholder="Paste your messy prompt here... e.g., 'buatkan website toko online yang bagus pake react sama ada keranjang belanja fiturnya lengkap' or 'write me code for app that tracks habit'"
+        spellcheck="false"
+      ></textarea>
+      <div class="action-bar">
+        <div class="action-tips">
+          💡 <span>Tip: The messier the input, the more impressive the transformation</span>
+        </div>
+        <button class="enhance-btn" id="enhanceBtn" onclick="enhancePrompt()">
+          <span class="btn-text">⚡ Enhance Prompt</span>
+          <span class="btn-loader">
+            <span class="spinner"></span>
+            Enhancing...
+          </span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Error Message -->
+    <div class="error-message" id="errorMsg">
+      <span>⚠️</span>
+      <span id="errorText"></span>
+    </div>
+
+    <!-- Result Section -->
+    <div class="result-section" id="resultSection">
+      <div class="result-card">
+        <div class="result-header">
+          <div class="result-header-left">
+            <span>✅</span>
+            <h3>Enhanced Prompt</h3>
+          </div>
+          <div class="result-actions">
+            <button class="icon-btn" id="copyBtn" onclick="copyResult()" title="Copy to clipboard">
+              📋
+            </button>
+            <button class="icon-btn" onclick="downloadResult()" title="Download as text">
+              💾
+            </button>
+          </div>
+        </div>
+        <div class="result-content" id="resultContent">
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Toast -->
+  <div class="toast" id="toast">
+    <span id="toastIcon"></span>
+    <span id="toastText"></span>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>Built with ❤️ using Gemini 2.5 Flash — <a href="https://github.com" target="_blank">Open Source</a></p>
+  </footer>
+
+  <script src="/js/enhance.js"></script>
+</body>
+</html>
