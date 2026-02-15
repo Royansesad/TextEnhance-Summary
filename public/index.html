@@ -8,8 +8,7 @@
     <meta name="description"
         content="Transform messy prompts into powerful, crystal-clear AI instructions with Gemini 2.5 Flash">
     <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.9/css/all.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.9/js/all.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="icon"
         href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
 </head>
@@ -20,15 +19,15 @@
     <nav class="navbar">
         <div class="navbar-inner">
             <a href="/" class="nav-logo">
-                <div class="nav-logo-icon">⚡</div>
+                <div class="nav-logo-icon"><i class="fa-solid fa-bolt"></i></div>
                 <span>PromptForge</span>
             </a>
             <div class="nav-links">
                 <a href="/" class="nav-link active">
-                    ✨ Enhancer
+                    <i class="fa-solid fa-wand-magic-sparkles"></i> Enhancer
                 </a>
                 <a href="/summary" class="nav-link">
-                    📝 Text Summary
+                    <i class="fa-solid fa-file-lines"></i> Text Summary
                 </a>
             </div>
         </div>
@@ -56,19 +55,19 @@
         <!-- Mode Selector -->
         <div class="mode-selector animate-in" style="animation-delay: 0.1s">
             <button class="mode-btn active" data-mode="general">
-                <span class="mode-icon">🎯</span>
+                <span class="mode-icon"><i class="fa-solid fa-bullseye"></i></span>
                 General
             </button>
             <button class="mode-btn" data-mode="creative">
-                <span class="mode-icon">🎨</span>
+                <span class="mode-icon"><i class="fa-solid fa-palette"></i></span>
                 Creative
             </button>
             <button class="mode-btn" data-mode="technical">
-                <span class="mode-icon">⚙️</span>
+                <span class="mode-icon"><i class="fa-solid fa-gear"></i></span>
                 Technical
             </button>
             <button class="mode-btn" data-mode="academic">
-                <span class="mode-icon">📚</span>
+                <span class="mode-icon"><i class="fa-solid fa-book"></i></span>
                 Academic
             </button>
         </div>
@@ -77,7 +76,7 @@
         <div class="prompt-card animate-in" style="animation-delay: 0.2s">
             <div class="card-header">
                 <div class="card-header-left">
-                    <span class="card-header-icon">📝</span>
+                    <span class="card-header-icon"><i class="fa-solid fa-pen-to-square"></i></span>
                     <h3>Your Raw Prompt</h3>
                 </div>
                 <span class="char-count" id="charCount">0 chars</span>
@@ -87,10 +86,11 @@
                 spellcheck="false"></textarea>
             <div class="action-bar">
                 <div class="action-tips">
-                    💡 <span>Tip: The messier the input, the more impressive the transformation</span>
+                    <i class="fa-solid fa-lightbulb"></i> <span>Tip: The messier the input, the more impressive the
+                        transformation</span>
                 </div>
                 <button class="enhance-btn" id="enhanceBtn" onclick="enhancePrompt()">
-                    <span class="btn-text">⚡ Enhance Prompt</span>
+                    <span class="btn-text"><i class="fa-solid fa-bolt"></i> Enhance Prompt</span>
                     <span class="btn-loader">
                         <span class="spinner"></span>
                         Enhancing...
@@ -101,7 +101,7 @@
 
         <!-- Error Message -->
         <div class="error-message" id="errorMsg">
-            <span>⚠️</span>
+            <span><i class="fa-solid fa-triangle-exclamation"></i></span>
             <span id="errorText"></span>
         </div>
 
@@ -110,15 +110,15 @@
             <div class="result-card">
                 <div class="result-header">
                     <div class="result-header-left">
-                        <span>✅</span>
+                        <span><i class="fa-solid fa-circle-check"></i></span>
                         <h3>Enhanced Prompt</h3>
                     </div>
                     <div class="result-actions">
                         <button class="icon-btn" id="copyBtn" onclick="copyResult()" title="Copy to clipboard">
-                            📋
+                            <i class="fa-regular fa-clipboard"></i>
                         </button>
                         <button class="icon-btn" onclick="downloadResult()" title="Download as text">
-                            💾
+                            <i class="fa-solid fa-download"></i>
                         </button>
                     </div>
                 </div>
@@ -137,7 +137,8 @@
 
     <!-- Footer -->
     <footer class="footer">
-        <p>Built with ❤️ using Gemini 2.5 Flash — <a href="https://github.com/Royansesad/TextEnhance-Summary" target="_blank">Open Source</a></p>
+        <p>Built with <i class="fa-solid fa-heart" style="color: #ef4444;"></i> using Gemini 2.5 Flash — <a
+                href="https://github.com/Royansesad/TextEnhance-Summary" target="_blank">Open Source</a></p>
     </footer>
 
     <script src="./js/enhance.js"></script>

@@ -7,6 +7,7 @@
     <title>Text Summary — PromptForge</title>
     <meta name="description" content="Summarize any text in multiple styles: narrative, descriptive, formal, and more">
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="icon"
         href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
 </head>
@@ -17,15 +18,15 @@
     <nav class="navbar">
         <div class="navbar-inner">
             <a href="/" class="nav-logo">
-                <div class="nav-logo-icon">⚡</div>
+                <div class="nav-logo-icon"><i class="fa-solid fa-bolt"></i></div>
                 <span>PromptForge</span>
             </a>
             <div class="nav-links">
                 <a href="/" class="nav-link">
-                    ✨ Enhancer
+                    <i class="fa-solid fa-wand-magic-sparkles"></i> Enhancer
                 </a>
                 <a href="/summary" class="nav-link active">
-                    📝 Text Summary
+                    <i class="fa-solid fa-file-lines"></i> Text Summary
                 </a>
             </div>
         </div>
@@ -53,44 +54,45 @@
         <!-- Summary Mode Selector -->
         <div class="summary-controls animate-in" style="animation-delay: 0.1s">
             <div class="control-group">
-                <span class="control-label">📌 Summary Style</span>
+                <span class="control-label"><i class="fa-solid fa-thumbtack"></i> Summary Style</span>
                 <div class="mode-grid">
                     <div class="mode-card active" data-mode="narrative">
-                        <span class="mode-emoji">📖</span>
+                        <span class="mode-emoji"><i class="fa-solid fa-book-open"></i></span>
                         <span class="mode-name">Narrative</span>
                     </div>
                     <div class="mode-card" data-mode="descriptive">
-                        <span class="mode-emoji">🎨</span>
+                        <span class="mode-emoji"><i class="fa-solid fa-palette"></i></span>
                         <span class="mode-name">Descriptive</span>
                     </div>
                     <div class="mode-card" data-mode="formal">
-                        <span class="mode-emoji">👔</span>
+                        <span class="mode-emoji"><i class="fa-solid fa-user-tie"></i></span>
                         <span class="mode-name">Formal</span>
                     </div>
                     <div class="mode-card" data-mode="bullet">
-                        <span class="mode-emoji">📋</span>
+                        <span class="mode-emoji"><i class="fa-solid fa-list-check"></i></span>
                         <span class="mode-name">Bullet Points</span>
                     </div>
                     <div class="mode-card" data-mode="eli5">
-                        <span class="mode-emoji">🧒</span>
+                        <span class="mode-emoji"><i class="fa-solid fa-child"></i></span>
                         <span class="mode-name">ELI5</span>
                     </div>
                     <div class="mode-card" data-mode="analytical">
-                        <span class="mode-emoji">🔬</span>
+                        <span class="mode-emoji"><i class="fa-solid fa-microscope"></i></span>
                         <span class="mode-name">Analytical</span>
                     </div>
                     <div class="mode-card" data-mode="persuasive">
-                        <span class="mode-emoji">💪</span>
+                        <span class="mode-emoji"><i class="fa-solid fa-hand-fist"></i></span>
                         <span class="mode-name">Persuasive</span>
                     </div>
                 </div>
             </div>
             <div class="control-group">
-                <span class="control-label">📏 Summary Length</span>
+                <span class="control-label"><i class="fa-solid fa-ruler"></i> Summary Length</span>
                 <div class="length-selector">
-                    <button class="length-btn" data-length="short">🔹 Short</button>
-                    <button class="length-btn active" data-length="medium">🔸 Medium</button>
-                    <button class="length-btn" data-length="long">🔶 Long</button>
+                    <button class="length-btn" data-length="short"><i class="fa-solid fa-compress"></i> Short</button>
+                    <button class="length-btn active" data-length="medium"><i class="fa-solid fa-arrows-left-right"></i>
+                        Medium</button>
+                    <button class="length-btn" data-length="long"><i class="fa-solid fa-expand"></i> Long</button>
                 </div>
             </div>
         </div>
@@ -99,7 +101,7 @@
         <div class="prompt-card animate-in" style="animation-delay: 0.2s">
             <div class="card-header">
                 <div class="card-header-left">
-                    <span class="card-header-icon">📄</span>
+                    <span class="card-header-icon"><i class="fa-solid fa-file-alt"></i></span>
                     <h3>Your Text</h3>
                 </div>
                 <span class="char-count" id="charCount">0 chars</span>
@@ -109,10 +111,10 @@
                 spellcheck="false" style="min-height: 220px;"></textarea>
             <div class="action-bar">
                 <div class="action-tips">
-                    💡 <span>Tip: Longer texts produce better summaries</span>
+                    <i class="fa-solid fa-lightbulb"></i> <span>Tip: Longer texts produce better summaries</span>
                 </div>
                 <button class="enhance-btn" id="summarizeBtn" onclick="summarizeText()">
-                    <span class="btn-text">📝 Summarize</span>
+                    <span class="btn-text"><i class="fa-solid fa-file-lines"></i> Summarize</span>
                     <span class="btn-loader">
                         <span class="spinner"></span>
                         Summarizing...
@@ -123,7 +125,7 @@
 
         <!-- Error Message -->
         <div class="error-message" id="errorMsg">
-            <span>⚠️</span>
+            <span><i class="fa-solid fa-triangle-exclamation"></i></span>
             <span id="errorText"></span>
         </div>
 
@@ -132,15 +134,15 @@
             <div class="result-card">
                 <div class="result-header">
                     <div class="result-header-left">
-                        <span>✅</span>
+                        <span><i class="fa-solid fa-circle-check"></i></span>
                         <h3>Summary Result</h3>
                     </div>
                     <div class="result-actions">
                         <button class="icon-btn" id="copyBtn" onclick="copyResult()" title="Copy to clipboard">
-                            📋
+                            <i class="fa-regular fa-clipboard"></i>
                         </button>
                         <button class="icon-btn" onclick="downloadResult()" title="Download as text">
-                            💾
+                            <i class="fa-solid fa-download"></i>
                         </button>
                     </div>
                 </div>
@@ -159,7 +161,8 @@
 
     <!-- Footer -->
     <footer class="footer">
-        <p>Built with ❤️ using Gemini 2.5 Flash — <a href="https://github.com/Royansesad/TextEnhance-Summary" target="_blank">Open Source</a></p>
+        <p>Built with <i class="fa-solid fa-heart" style="color: #ef4444;"></i> using Gemini 2.5 Flash — <a
+                href="https://github.com/Royansesad/TextEnhance-Summary" target="_blank">Open Source</a></p>
     </footer>
 
     <script src="./js/summary.js"></script>
