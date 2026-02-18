@@ -701,18 +701,29 @@ body::before {
   font-style: italic;
 }
 
-/* === Summary Page Specific === */
-.summary-controls {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
+/* === Shared Controls Layout === */
+.enhance-controls,
+.summary-controls-compact {
   margin-bottom: 24px;
 }
 
-.control-group {
+.controls-row {
+  display: flex;
+  gap: 20px;
+  align-items: flex-end;
+  flex-wrap: wrap;
+}
+
+.control-item {
   display: flex;
   flex-direction: column;
   gap: 8px;
+  min-width: 180px;
+}
+
+.control-item-grow {
+  flex: 1;
+  min-width: 0;
 }
 
 .control-label {
@@ -721,8 +732,109 @@ body::before {
   color: var(--text-secondary);
   text-transform: uppercase;
   letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 
+/* === Custom Select Dropdown === */
+.custom-select-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.custom-select {
+  width: 100%;
+  padding: 10px 40px 10px 14px;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+  font-size: 14px;
+  font-weight: 500;
+  font-family: 'Inter', sans-serif;
+  cursor: pointer;
+  transition: var(--transition);
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  outline: none;
+}
+
+.custom-select:hover {
+  border-color: var(--border-hover);
+  background: var(--bg-card-hover);
+}
+
+.custom-select:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-glow);
+}
+
+.custom-select option {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  padding: 8px;
+}
+
+.select-arrow {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-muted);
+  font-size: 12px;
+  pointer-events: none;
+  transition: var(--transition);
+}
+
+.custom-select:focus+.select-arrow {
+  color: var(--accent-hover);
+}
+
+/* === Incompatibility Warning === */
+.compat-warning {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 12px;
+  padding: 12px 16px;
+  background: rgba(245, 158, 11, 0.08);
+  border: 1px solid rgba(245, 158, 11, 0.25);
+  border-radius: var(--radius-md);
+  color: var(--orange);
+  font-size: 13px;
+  font-weight: 500;
+  animation: fadeInUp 0.3s ease forwards;
+}
+
+.compat-warning i {
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.enhance-btn.disabled-compat {
+  opacity: 0.4;
+  cursor: not-allowed;
+  filter: grayscale(0.5);
+}
+
+/* === Mode Selector (Enhance page) === */
+.mode-selector {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+/* === Hero Text Transition === */
+#heroLine1,
+#heroLine2,
+#heroDescription {
+  transition: opacity 0.2s ease;
+}
+
+/* === Legacy mode-card styles (kept for compatibility) === */
 .mode-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
@@ -766,6 +878,7 @@ body::before {
   color: var(--accent-hover);
 }
 
+/* === Length Selector === */
 .length-selector {
   display: flex;
   gap: 8px;
@@ -903,6 +1016,15 @@ body::before {
 
   .hero h1 {
     font-size: 28px;
+  }
+
+  .controls-row {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .control-item {
+    min-width: 100%;
   }
 
   .mode-selector {

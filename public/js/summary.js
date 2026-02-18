@@ -6,20 +6,21 @@ let selectedMode = 'narrative';
 let selectedLength = 'medium';
 let summaryResult = '';
 
-// === Mode Selection (Cards) ===
-document.querySelectorAll('.mode-card').forEach(card => {
-    card.addEventListener('click', () => {
-        document.querySelectorAll('.mode-card').forEach(c => c.classList.remove('active'));
-        card.classList.add('active');
-        selectedMode = card.dataset.mode;
-    });
+// === Style Dropdown Selection ===
+const styleSelect = document.getElementById('summaryStyle');
+styleSelect.addEventListener('change', () => {
+    selectedMode = styleSelect.value;
 });
 
 // === Length Selection ===
 document.querySelectorAll('.length-btn').forEach(btn => {
     btn.addEventListener('click', () => {
-        document.querySelectorAll('.length-btn').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.length-btn').forEach(b => {
+            b.classList.remove('active');
+            b.setAttribute('aria-pressed', 'false');
+        });
         btn.classList.add('active');
+        btn.setAttribute('aria-pressed', 'true');
         selectedLength = btn.dataset.length;
     });
 });
@@ -101,7 +102,7 @@ async function summarizeText() {
         if (resultHeader) resultHeader.style.display = '';
         resultSection.classList.add('visible');
 
-        showToast('success', '<i class="fa-solid fa-circle-check"></i>', `Summary generated in ${selectedMode} mode!`);
+        showToast('success', '<i class="fa-solid fa-circle-check"></i>', `Summary generated in ${selectedMode} style!`);
 
     } catch (error) {
         console.error('Error:', error);

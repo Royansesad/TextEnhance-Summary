@@ -1,18 +1,131 @@
 // ============================================
-// PROMPT ENHANCER - Frontend Logic
+// TEXT ENHANCER - Frontend Logic
 // ============================================
 
 let selectedMode = 'general';
+let selectedType = 'prompt';
 let enhancedResult = '';
+
+// === Incompatibility Matrix ===
+const incompatibleCombos = {
+    story: {
+        technical: 'Story is not compatible with Technical mode.',
+        academic: 'Story is not compatible with Academic mode.'
+    }
+};
+
+// === Hero Content per Type ===
+const heroContent = {
+    prompt: {
+        line1: 'Transform Chaos Into',
+        line2: 'Powerful Prompts',
+        description: 'Paste your messy, unclear, or rough prompt and watch it transform into a crystal-clear, highly effective AI instruction.',
+        inputLabel: 'Your Raw Prompt',
+        placeholder: "Paste your messy prompt here... e.g., 'buatkan website toko online yang bagus pake react sama ada keranjang belanja fiturnya lengkap' or 'write me code for app that tracks habit'",
+        tip: 'Tip: The messier the input, the more impressive the transformation',
+        btnText: '<i class="fa-solid fa-bolt" aria-hidden="true"></i> Enhance Prompt',
+        enhancingText: 'Enhancing...',
+        resultTitle: 'Enhanced Prompt'
+    },
+    text: {
+        line1: 'Clarify & Polish',
+        line2: 'Any Text Instantly',
+        description: 'Paste your rough draft, essay, or paragraph and get a clearer, more polished version — grammar fixed, meaning sharpened.',
+        inputLabel: 'Your Raw Text',
+        placeholder: "Paste your text here... essays, paragraphs, explanations, articles, or any content you want to clarify and polish.",
+        tip: 'Tip: Works best with paragraphs or essays that need clarity',
+        btnText: '<i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i> Enhance Text',
+        enhancingText: 'Enhancing...',
+        resultTitle: 'Enhanced Text'
+    },
+    story: {
+        line1: 'Bring Your Story',
+        line2: 'To Life',
+        description: 'Paste your rough story draft and watch it transform — richer descriptions, better flow, and more engaging narrative.',
+        inputLabel: 'Your Raw Story',
+        placeholder: "Paste your story here... short stories, novel chapters, creative writing drafts, or any narrative you want to enhance and enrich.",
+        tip: 'Tip: Include character names and plot points for better enhancement',
+        btnText: '<i class="fa-solid fa-feather-pointed" aria-hidden="true"></i> Enhance Story',
+        enhancingText: 'Enhancing...',
+        resultTitle: 'Enhanced Story'
+    }
+};
+
+// === Content Type Dropdown ===
+const contentTypeSelect = document.getElementById('contentType');
+contentTypeSelect.addEventListener('change', () => {
+    selectedType = contentTypeSelect.value;
+    updateHero();
+    checkCompatibility();
+});
+
+// === Update Hero Dynamically ===
+function updateHero() {
+    const content = heroContent[selectedType];
+
+    const heroLine1 = document.getElementById('heroLine1');
+    const heroLine2 = document.getElementById('heroLine2');
+    const heroDesc = document.getElementById('heroDescription');
+    const inputHeading = document.getElementById('input-heading');
+    const promptInput = document.getElementById('promptInput');
+    const tipText = document.getElementById('tipText');
+    const enhanceBtnText = document.getElementById('enhanceBtnText');
+    const enhancingText = document.getElementById('enhancingText');
+    const resultHeading = document.getElementById('result-heading');
+
+    // Animate transition
+    heroLine1.style.opacity = '0';
+    heroLine2.style.opacity = '0';
+    heroDesc.style.opacity = '0';
+
+    setTimeout(() => {
+        heroLine1.textContent = content.line1;
+        heroLine2.textContent = content.line2;
+        heroDesc.textContent = content.description;
+        inputHeading.textContent = content.inputLabel;
+        promptInput.placeholder = content.placeholder;
+        tipText.textContent = content.tip;
+        enhanceBtnText.innerHTML = content.btnText;
+        enhancingText.textContent = content.enhancingText;
+        resultHeading.textContent = content.resultTitle;
+
+        heroLine1.style.opacity = '1';
+        heroLine2.style.opacity = '1';
+        heroDesc.style.opacity = '1';
+    }, 200);
+}
 
 // === Mode Selection ===
 document.querySelectorAll('.mode-btn').forEach(btn => {
     btn.addEventListener('click', () => {
-        document.querySelectorAll('.mode-btn').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.mode-btn').forEach(b => {
+            b.classList.remove('active');
+            b.setAttribute('aria-pressed', 'false');
+        });
         btn.classList.add('active');
+        btn.setAttribute('aria-pressed', 'true');
         selectedMode = btn.dataset.mode;
+        checkCompatibility();
     });
 });
+
+// === Check Compatibility ===
+function checkCompatibility() {
+    const warning = document.getElementById('compatWarning');
+    const warningText = document.getElementById('compatWarningText');
+    const enhanceBtn = document.getElementById('enhanceBtn');
+
+    if (incompatibleCombos[selectedType] && incompatibleCombos[selectedType][selectedMode]) {
+        warningText.textContent = incompatibleCombos[selectedType][selectedMode];
+        warning.style.display = 'flex';
+        enhanceBtn.disabled = true;
+        enhanceBtn.classList.add('disabled-compat');
+    } else {
+        warning.style.display = 'none';
+        enhanceBtn.disabled = false;
+        enhanceBtn.classList.remove('disabled-compat');
+    }
+}
 
 // === Character Counter ===
 const promptInput = document.getElementById('promptInput');
@@ -36,12 +149,18 @@ async function enhancePrompt() {
     const prompt = promptInput.value.trim();
 
     if (!prompt) {
-        showError('Please enter a prompt to enhance.');
+        showError('Please enter content to enhance.');
         return;
     }
 
     if (prompt.length < 5) {
-        showError('Please enter a longer prompt (at least 5 characters).');
+        showError('Please enter longer content (at least 5 characters).');
+        return;
+    }
+
+    // Check compatibility before sending
+    if (incompatibleCombos[selectedType] && incompatibleCombos[selectedType][selectedMode]) {
+        showError(incompatibleCombos[selectedType][selectedMode]);
         return;
     }
 
@@ -75,14 +194,15 @@ async function enhancePrompt() {
             },
             body: JSON.stringify({
                 prompt: prompt,
-                mode: selectedMode
+                mode: selectedMode,
+                type: selectedType
             })
         });
 
         const data = await response.json();
 
         if (!response.ok) {
-            throw new Error(data.error || 'Failed to enhance prompt');
+            throw new Error(data.error || 'Failed to enhance content');
         }
 
         enhancedResult = data.enhanced;
@@ -90,7 +210,8 @@ async function enhancePrompt() {
         if (resultHeader) resultHeader.style.display = '';
         resultSection.classList.add('visible');
 
-        showToast('success', '<i class="fa-solid fa-wand-magic-sparkles"></i>', 'Prompt enhanced successfully!');
+        const typeLabel = selectedType.charAt(0).toUpperCase() + selectedType.slice(1);
+        showToast('success', '<i class="fa-solid fa-wand-magic-sparkles"></i>', `${typeLabel} enhanced successfully!`);
 
     } catch (error) {
         console.error('Error:', error);
@@ -137,7 +258,7 @@ function downloadResult() {
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = `enhanced-prompt-${Date.now()}.md`;
+    a.download = `enhanced-${selectedType}-${Date.now()}.md`;
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);

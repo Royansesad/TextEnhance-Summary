@@ -78,7 +78,7 @@
             {
                 "@type": "ListItem",
                 "position": 1,
-                "name": "Prompt Enhancer",
+                "name": "Enhancer",
                 "item": "https://text-enhance-summary.vercel.app/"
             },
             {
@@ -142,66 +142,46 @@
             </p>
         </section>
 
-        <!-- Summary Controls Section -->
-        <section class="summary-controls animate-in" style="animation-delay: 0.1s"
+        <!-- Summary Controls — Compact Row -->
+        <section class="summary-controls-compact animate-in" style="animation-delay: 0.1s"
             aria-label="Summary configuration options">
-            <fieldset class="control-group">
-                <legend class="control-label"><i class="fa-solid fa-thumbtack" aria-hidden="true"></i> Summary
-                    Style</legend>
-                <div class="mode-grid" role="radiogroup" aria-label="Choose a summary writing style">
-                    <div class="mode-card active" data-mode="narrative" role="radio" aria-checked="true" tabindex="0"
-                        aria-label="Narrative style">
-                        <span class="mode-emoji" aria-hidden="true"><i class="fa-solid fa-book-open"></i></span>
-                        <span class="mode-name">Narrative</span>
-                    </div>
-                    <div class="mode-card" data-mode="descriptive" role="radio" aria-checked="false" tabindex="0"
-                        aria-label="Descriptive style">
-                        <span class="mode-emoji" aria-hidden="true"><i class="fa-solid fa-palette"></i></span>
-                        <span class="mode-name">Descriptive</span>
-                    </div>
-                    <div class="mode-card" data-mode="formal" role="radio" aria-checked="false" tabindex="0"
-                        aria-label="Formal style">
-                        <span class="mode-emoji" aria-hidden="true"><i class="fa-solid fa-user-tie"></i></span>
-                        <span class="mode-name">Formal</span>
-                    </div>
-                    <div class="mode-card" data-mode="bullet" role="radio" aria-checked="false" tabindex="0"
-                        aria-label="Bullet points style">
-                        <span class="mode-emoji" aria-hidden="true"><i class="fa-solid fa-list-check"></i></span>
-                        <span class="mode-name">Bullet Points</span>
-                    </div>
-                    <div class="mode-card" data-mode="eli5" role="radio" aria-checked="false" tabindex="0"
-                        aria-label="Explain like I'm 5 style">
-                        <span class="mode-emoji" aria-hidden="true"><i class="fa-solid fa-child"></i></span>
-                        <span class="mode-name">ExplainLikeIm5</span>
-                    </div>
-                    <div class="mode-card" data-mode="analytical" role="radio" aria-checked="false" tabindex="0"
-                        aria-label="Analytical style">
-                        <span class="mode-emoji" aria-hidden="true"><i class="fa-solid fa-microscope"></i></span>
-                        <span class="mode-name">Analytical</span>
-                    </div>
-                    <div class="mode-card" data-mode="persuasive" role="radio" aria-checked="false" tabindex="0"
-                        aria-label="Persuasive style">
-                        <span class="mode-emoji" aria-hidden="true"><i class="fa-solid fa-hand-fist"></i></span>
-                        <span class="mode-name">Persuasive</span>
+            <div class="controls-row">
+                <!-- Summary Style Dropdown -->
+                <div class="control-item">
+                    <label for="summaryStyle" class="control-label">
+                        <i class="fa-solid fa-thumbtack" aria-hidden="true"></i> Summary Style
+                    </label>
+                    <div class="custom-select-wrapper">
+                        <select id="summaryStyle" class="custom-select" aria-label="Select summary writing style">
+                            <option value="narrative" selected>📖 Narrative</option>
+                            <option value="descriptive">🎨 Descriptive</option>
+                            <option value="formal">👔 Formal</option>
+                            <option value="bullet">✅ Bullet Points</option>
+                            <option value="eli5">👶 Explain Like I'm 5</option>
+                            <option value="analytical">🔬 Analytical</option>
+                            <option value="persuasive">✊ Persuasive</option>
+                        </select>
+                        <span class="select-arrow" aria-hidden="true"><i class="fa-solid fa-chevron-down"></i></span>
                     </div>
                 </div>
-            </fieldset>
-            <fieldset class="control-group">
-                <legend class="control-label"><i class="fa-solid fa-ruler" aria-hidden="true"></i> Summary
-                    Length</legend>
-                <div class="length-selector" role="radiogroup" aria-label="Choose summary length">
-                    <button class="length-btn" data-length="short" role="radio" aria-checked="false"
-                        aria-label="Short summary length"><i class="fa-solid fa-compress" aria-hidden="true"></i>
-                        Short</button>
-                    <button class="length-btn active" data-length="medium" role="radio" aria-checked="true"
-                        aria-label="Medium summary length"><i class="fa-solid fa-arrows-left-right"
-                            aria-hidden="true"></i>
-                        Medium</button>
-                    <button class="length-btn" data-length="long" role="radio" aria-checked="false"
-                        aria-label="Long summary length"><i class="fa-solid fa-expand" aria-hidden="true"></i>
-                        Long</button>
+
+                <!-- Summary Length -->
+                <div class="control-item control-item-grow">
+                    <span class="control-label">
+                        <i class="fa-solid fa-ruler" aria-hidden="true"></i> Summary Length
+                    </span>
+                    <div class="length-selector" role="group" aria-label="Choose summary length">
+                        <button class="length-btn" data-length="short" aria-pressed="false"
+                            aria-label="Short summary"><i class="fa-solid fa-compress" aria-hidden="true"></i>
+                            Short</button>
+                        <button class="length-btn active" data-length="medium" aria-pressed="true"
+                            aria-label="Medium summary"><i class="fa-solid fa-arrows-left-right" aria-hidden="true"></i>
+                            Medium</button>
+                        <button class="length-btn" data-length="long" aria-pressed="false" aria-label="Long summary"><i
+                                class="fa-solid fa-expand" aria-hidden="true"></i> Long</button>
+                    </div>
                 </div>
-            </fieldset>
+            </div>
         </section>
 
         <!-- Text Input Card -->
