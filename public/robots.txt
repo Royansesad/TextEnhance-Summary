@@ -1,0 +1,9 @@
+# PromptForge — Robots.txt
+# https://promptforge.vercel.app
+
+User-agent: *
+Allow: /
+Disallow: /api/
+
+# Sitemap
+Sitemap: https://promptforge.vercel.app/sitemap.xml

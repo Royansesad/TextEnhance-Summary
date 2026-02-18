@@ -1,48 +1,137 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" itemscope itemtype="https://schema.org/WebApplication">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PromptForge — AI Prompt Enhancer</title>
+
+    <!-- Primary SEO Meta Tags -->
+    <title>PromptForge — AI Prompt Enhancer | Transform Messy Prompts Into Powerful AI Instructions</title>
     <meta name="description"
-        content="Transform messy prompts into powerful, crystal-clear AI instructions with Gemini 2.5 Flash">
+        content="PromptForge is a free AI-powered prompt enhancer that transforms messy, unclear prompts into crystal-clear, highly effective AI instructions. Powered by Gemini 2.5 Flash.">
+    <meta name="keywords"
+        content="AI prompt enhancer, prompt engineering, AI instructions, ChatGPT prompts, Gemini prompts, prompt optimizer, AI tool, text transformer, prompt generator, prompt improvement">
+    <meta name="author" content="PromptForge">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="theme-color" content="#6366f1">
+    <meta name="application-name" content="PromptForge">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://promptforge.vercel.app/">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://promptforge.vercel.app/">
+    <meta property="og:title"
+        content="PromptForge — AI Prompt Enhancer | Transform Messy Prompts Into Powerful AI Instructions">
+    <meta property="og:description"
+        content="Transform messy, unclear prompts into crystal-clear, highly effective AI instructions. Free AI-powered prompt enhancer built with Gemini 2.5 Flash.">
+    <meta property="og:site_name" content="PromptForge">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://promptforge.vercel.app/">
+    <meta name="twitter:title" content="PromptForge — AI Prompt Enhancer">
+    <meta name="twitter:description"
+        content="Transform messy prompts into powerful, crystal-clear AI instructions with Gemini 2.5 Flash.">
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "PromptForge",
+        "url": "https://promptforge.vercel.app/",
+        "description": "A free AI-powered prompt enhancer that transforms messy, unclear prompts into crystal-clear, highly effective AI instructions using Gemini 2.5 Flash.",
+        "applicationCategory": "UtilityApplication",
+        "operatingSystem": "Any",
+        "browserRequirements": "Requires JavaScript",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "featureList": [
+            "AI Prompt Enhancement",
+            "General Mode",
+            "Creative Mode",
+            "Technical Mode",
+            "Academic Mode",
+            "Text Summarization",
+            "Copy to Clipboard",
+            "Download as Markdown"
+        ],
+        "creator": {
+            "@type": "Organization",
+            "name": "PromptForge",
+            "url": "https://github.com/Royansesad/TextEnhance-Summary"
+        }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Prompt Enhancer",
+                "item": "https://promptforge.vercel.app/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Text Summary",
+                "item": "https://promptforge.vercel.app/summary"
+            }
+        ]
+    }
+    </script>
+
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- Favicon -->
     <link rel="icon"
         href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
 </head>
 
 <body>
 
-    <!-- Navbar -->
-    <nav class="navbar">
-        <div class="navbar-inner">
-            <a href="/" class="nav-logo">
-                <div class="nav-logo-icon"><i class="fa-solid fa-bolt"></i></div>
+    <!-- Skip Navigation Link for Accessibility -->
+    <a href="#main-content" class="skip-link" aria-label="Skip to main content">Skip to main content</a>
+
+    <!-- Header / Navbar -->
+    <header class="navbar" role="banner">
+        <nav class="navbar-inner" aria-label="Primary navigation">
+            <a href="/" class="nav-logo" aria-label="PromptForge — Go to homepage">
+                <div class="nav-logo-icon" aria-hidden="true"><i class="fa-solid fa-bolt"></i></div>
                 <span>PromptForge</span>
             </a>
-            <div class="nav-links">
-                <a href="/" class="nav-link active">
-                    <i class="fa-solid fa-wand-magic-sparkles"></i> Enhancer
+            <div class="nav-links" role="navigation" aria-label="Main menu">
+                <a href="/" class="nav-link active" aria-current="page">
+                    <i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i> Enhancer
                 </a>
                 <a href="/summary" class="nav-link">
-                    <i class="fa-solid fa-file-lines"></i> Text Summary
+                    <i class="fa-solid fa-file-lines" aria-hidden="true"></i> Text Summary
                 </a>
             </div>
-        </div>
-    </nav>
+        </nav>
+    </header>
 
     <!-- Main Content -->
-    <main class="main-content">
+    <main class="main-content" id="main-content" role="main">
 
-        <!-- Hero -->
-        <section class="hero animate-in">
-            <div class="hero-badge">
-                <span class="dot"></span>
+        <!-- Hero Section -->
+        <section class="hero animate-in" aria-labelledby="hero-heading">
+            <div class="hero-badge" role="status" aria-label="Status: Powered by Gemini 2.5 Flash">
+                <span class="dot" aria-hidden="true"></span>
                 Powered by Gemini 2.5 Flash
             </div>
-            <h1>
+            <h1 id="hero-heading">
                 Transform Chaos Into<br>
                 <span class="gradient-text">Powerful Prompts</span>
             </h1>
@@ -52,93 +141,102 @@
             </p>
         </section>
 
-        <!-- Mode Selector -->
-        <div class="mode-selector animate-in" style="animation-delay: 0.1s">
-            <button class="mode-btn active" data-mode="general">
-                <span class="mode-icon"><i class="fa-solid fa-bullseye"></i></span>
+        <!-- Mode Selector Section -->
+        <section class="mode-selector animate-in" style="animation-delay: 0.1s" aria-label="Enhancement mode selection"
+            role="group">
+            <h2 class="sr-only">Select Enhancement Mode</h2>
+            <button class="mode-btn active" data-mode="general" aria-pressed="true"
+                aria-label="General enhancement mode">
+                <span class="mode-icon" aria-hidden="true"><i class="fa-solid fa-bullseye"></i></span>
                 General
             </button>
-            <button class="mode-btn" data-mode="creative">
-                <span class="mode-icon"><i class="fa-solid fa-palette"></i></span>
+            <button class="mode-btn" data-mode="creative" aria-pressed="false" aria-label="Creative enhancement mode">
+                <span class="mode-icon" aria-hidden="true"><i class="fa-solid fa-palette"></i></span>
                 Creative
             </button>
-            <button class="mode-btn" data-mode="technical">
-                <span class="mode-icon"><i class="fa-solid fa-gear"></i></span>
+            <button class="mode-btn" data-mode="technical" aria-pressed="false" aria-label="Technical enhancement mode">
+                <span class="mode-icon" aria-hidden="true"><i class="fa-solid fa-gear"></i></span>
                 Technical
             </button>
-            <button class="mode-btn" data-mode="academic">
-                <span class="mode-icon"><i class="fa-solid fa-book"></i></span>
+            <button class="mode-btn" data-mode="academic" aria-pressed="false" aria-label="Academic enhancement mode">
+                <span class="mode-icon" aria-hidden="true"><i class="fa-solid fa-book"></i></span>
                 Academic
             </button>
-        </div>
+        </section>
 
         <!-- Prompt Input Card -->
-        <div class="prompt-card animate-in" style="animation-delay: 0.2s">
+        <article class="prompt-card animate-in" style="animation-delay: 0.2s" aria-labelledby="input-heading">
             <div class="card-header">
                 <div class="card-header-left">
-                    <span class="card-header-icon"><i class="fa-solid fa-pen-to-square"></i></span>
-                    <h3>Your Raw Prompt</h3>
+                    <span class="card-header-icon" aria-hidden="true"><i class="fa-solid fa-pen-to-square"></i></span>
+                    <h2 id="input-heading" class="card-header-title">Your Raw Prompt</h2>
                 </div>
-                <span class="char-count" id="charCount">0 chars</span>
+                <span class="char-count" id="charCount" aria-live="polite" aria-atomic="true">0 chars</span>
             </div>
+            <label for="promptInput" class="sr-only">Enter your raw prompt to enhance</label>
             <textarea class="prompt-textarea" id="promptInput"
                 placeholder="Paste your messy prompt here... e.g., 'buatkan website toko online yang bagus pake react sama ada keranjang belanja fiturnya lengkap' or 'write me code for app that tracks habit'"
-                spellcheck="false"></textarea>
+                spellcheck="false" aria-describedby="input-tip"></textarea>
             <div class="action-bar">
-                <div class="action-tips">
-                    <i class="fa-solid fa-lightbulb"></i> <span>Tip: The messier the input, the more impressive the
-                        transformation</span>
+                <div class="action-tips" id="input-tip">
+                    <i class="fa-solid fa-lightbulb" aria-hidden="true"></i> <span>Tip: The messier the input, the more
+                        impressive the transformation</span>
                 </div>
-                <button class="enhance-btn" id="enhanceBtn" onclick="enhancePrompt()">
-                    <span class="btn-text"><i class="fa-solid fa-bolt"></i> Enhance Prompt</span>
-                    <span class="btn-loader">
+                <button class="enhance-btn" id="enhanceBtn" onclick="enhancePrompt()"
+                    aria-label="Enhance your prompt using AI">
+                    <span class="btn-text"><i class="fa-solid fa-bolt" aria-hidden="true"></i> Enhance Prompt</span>
+                    <span class="btn-loader" aria-hidden="true">
                         <span class="spinner"></span>
                         Enhancing...
                     </span>
                 </button>
             </div>
-        </div>
+        </article>
 
         <!-- Error Message -->
-        <div class="error-message" id="errorMsg">
-            <span><i class="fa-solid fa-triangle-exclamation"></i></span>
+        <aside class="error-message" id="errorMsg" role="alert" aria-live="assertive">
+            <span aria-hidden="true"><i class="fa-solid fa-triangle-exclamation"></i></span>
             <span id="errorText"></span>
-        </div>
+        </aside>
 
         <!-- Result Section -->
-        <div class="result-section" id="resultSection">
-            <div class="result-card">
+        <section class="result-section" id="resultSection" aria-labelledby="result-heading">
+            <article class="result-card">
                 <div class="result-header">
                     <div class="result-header-left">
-                        <span><i class="fa-solid fa-circle-check"></i></span>
-                        <h3>Enhanced Prompt</h3>
+                        <span aria-hidden="true"><i class="fa-solid fa-circle-check"></i></span>
+                        <h2 id="result-heading" class="result-title">Enhanced Prompt</h2>
                     </div>
                     <div class="result-actions">
-                        <button class="icon-btn" id="copyBtn" onclick="copyResult()" title="Copy to clipboard">
-                            <i class="fa-regular fa-clipboard"></i>
+                        <button class="icon-btn" id="copyBtn" onclick="copyResult()" title="Copy to clipboard"
+                            aria-label="Copy enhanced prompt to clipboard">
+                            <i class="fa-regular fa-clipboard" aria-hidden="true"></i>
                         </button>
-                        <button class="icon-btn" onclick="downloadResult()" title="Download as text">
-                            <i class="fa-solid fa-download"></i>
+                        <button class="icon-btn" onclick="downloadResult()" title="Download as text"
+                            aria-label="Download enhanced prompt as text file">
+                            <i class="fa-solid fa-download" aria-hidden="true"></i>
                         </button>
                     </div>
                 </div>
-                <div class="result-content" id="resultContent">
+                <div class="result-content" id="resultContent" aria-live="polite" role="region"
+                    aria-label="Enhanced prompt result">
                 </div>
-            </div>
-        </div>
+            </article>
+        </section>
 
     </main>
 
-    <!-- Toast -->
-    <div class="toast" id="toast">
-        <span id="toastIcon"></span>
+    <!-- Toast Notification -->
+    <div class="toast" id="toast" role="status" aria-live="polite">
+        <span id="toastIcon" aria-hidden="true"></span>
         <span id="toastText"></span>
     </div>
 
     <!-- Footer -->
-    <footer class="footer">
-        <p>Built with <i class="fa-solid fa-heart" style="color: #ef4444;"></i> using Gemini 2.5 Flash — <a
-                href="https://github.com/Royansesad/TextEnhance-Summary" target="_blank">Open Source</a></p>
+    <footer class="footer" role="contentinfo">
+        <p>Built with <i class="fa-solid fa-heart" style="color: #ef4444;" aria-label="love"></i> using Gemini 2.5
+            Flash — <a href="https://github.com/Royansesad/TextEnhance-Summary" target="_blank"
+                rel="noopener noreferrer">Open Source</a></p>
     </footer>
 
     <script src="./js/enhance.js"></script>

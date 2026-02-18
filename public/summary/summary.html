@@ -1,47 +1,138 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" itemscope itemtype="https://schema.org/WebApplication">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Text Summary — PromptForge</title>
-    <meta name="description" content="Summarize any text in multiple styles: narrative, descriptive, formal, and more">
+
+    <!-- Primary SEO Meta Tags -->
+    <title>Text Summary Tool — PromptForge | AI-Powered Text Summarizer in Multiple Styles</title>
+    <meta name="description"
+        content="Summarize any text instantly with AI. Choose from 7 summary styles: narrative, descriptive, formal, bullet points, ELI5, analytical, and persuasive. Free AI text summarizer powered by Gemini 2.5 Flash.">
+    <meta name="keywords"
+        content="text summarizer, AI summarizer, text summary tool, summarize text online, article summarizer, AI summary, Gemini summarizer, text condensation, summary generator, free summarizer">
+    <meta name="author" content="PromptForge">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="theme-color" content="#6366f1">
+    <meta name="application-name" content="PromptForge">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://promptforge.vercel.app/summary">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://promptforge.vercel.app/summary">
+    <meta property="og:title" content="Text Summary Tool — PromptForge | AI-Powered Text Summarizer">
+    <meta property="og:description"
+        content="Summarize any text instantly with AI. Choose from 7 styles: narrative, descriptive, formal, bullet points, ELI5, analytical, and persuasive.">
+    <meta property="og:site_name" content="PromptForge">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://promptforge.vercel.app/summary">
+    <meta name="twitter:title" content="Text Summary Tool — PromptForge">
+    <meta name="twitter:description"
+        content="Summarize any text in multiple AI-powered styles: narrative, descriptive, formal, bullet points, and more.">
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "PromptForge Text Summarizer",
+        "url": "https://promptforge.vercel.app/summary",
+        "description": "AI-powered text summarization tool with multiple styles including narrative, descriptive, formal, bullet points, ELI5, analytical, and persuasive.",
+        "applicationCategory": "UtilityApplication",
+        "operatingSystem": "Any",
+        "browserRequirements": "Requires JavaScript",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "featureList": [
+            "Narrative Summary",
+            "Descriptive Summary",
+            "Formal Summary",
+            "Bullet Points Summary",
+            "Explain Like I'm 5 Summary",
+            "Analytical Summary",
+            "Persuasive Summary",
+            "Adjustable Summary Length",
+            "Copy to Clipboard",
+            "Download as Markdown"
+        ],
+        "creator": {
+            "@type": "Organization",
+            "name": "PromptForge",
+            "url": "https://github.com/Royansesad/TextEnhance-Summary"
+        }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Prompt Enhancer",
+                "item": "https://promptforge.vercel.app/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Text Summary",
+                "item": "https://promptforge.vercel.app/summary"
+            }
+        ]
+    }
+    </script>
+
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- Favicon -->
     <link rel="icon"
         href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
 </head>
 
 <body>
 
-    <!-- Navbar -->
-    <nav class="navbar">
-        <div class="navbar-inner">
-            <a href="/" class="nav-logo">
-                <div class="nav-logo-icon"><i class="fa-solid fa-bolt"></i></div>
+    <!-- Skip Navigation Link for Accessibility -->
+    <a href="#main-content" class="skip-link" aria-label="Skip to main content">Skip to main content</a>
+
+    <!-- Header / Navbar -->
+    <header class="navbar" role="banner">
+        <nav class="navbar-inner" aria-label="Primary navigation">
+            <a href="/" class="nav-logo" aria-label="PromptForge — Go to homepage">
+                <div class="nav-logo-icon" aria-hidden="true"><i class="fa-solid fa-bolt"></i></div>
                 <span>PromptForge</span>
             </a>
-            <div class="nav-links">
+            <div class="nav-links" role="navigation" aria-label="Main menu">
                 <a href="/" class="nav-link">
-                    <i class="fa-solid fa-wand-magic-sparkles"></i> Enhancer
+                    <i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i> Enhancer
                 </a>
-                <a href="/summary" class="nav-link active">
-                    <i class="fa-solid fa-file-lines"></i> Text Summary
+                <a href="/summary" class="nav-link active" aria-current="page">
+                    <i class="fa-solid fa-file-lines" aria-hidden="true"></i> Text Summary
                 </a>
             </div>
-        </div>
-    </nav>
+        </nav>
+    </header>
 
     <!-- Main Content -->
-    <main class="main-content">
+    <main class="main-content" id="main-content" role="main">
 
-        <!-- Hero -->
-        <section class="hero animate-in">
-            <div class="hero-badge">
-                <span class="dot"></span>
+        <!-- Hero Section -->
+        <section class="hero animate-in" aria-labelledby="hero-heading">
+            <div class="hero-badge" role="status" aria-label="Status: AI-Powered Summarization">
+                <span class="dot" aria-hidden="true"></span>
                 AI-Powered Summarization
             </div>
-            <h1>
+            <h1 id="hero-heading">
                 Summarize Any Text<br>
                 <span class="gradient-text">Your Way</span>
             </h1>
@@ -51,118 +142,141 @@
             </p>
         </section>
 
-        <!-- Summary Mode Selector -->
-        <div class="summary-controls animate-in" style="animation-delay: 0.1s">
-            <div class="control-group">
-                <span class="control-label"><i class="fa-solid fa-thumbtack"></i> Summary Style</span>
-                <div class="mode-grid">
-                    <div class="mode-card active" data-mode="narrative">
-                        <span class="mode-emoji"><i class="fa-solid fa-book-open"></i></span>
+        <!-- Summary Controls Section -->
+        <section class="summary-controls animate-in" style="animation-delay: 0.1s"
+            aria-label="Summary configuration options">
+            <fieldset class="control-group">
+                <legend class="control-label"><i class="fa-solid fa-thumbtack" aria-hidden="true"></i> Summary
+                    Style</legend>
+                <div class="mode-grid" role="radiogroup" aria-label="Choose a summary writing style">
+                    <div class="mode-card active" data-mode="narrative" role="radio" aria-checked="true" tabindex="0"
+                        aria-label="Narrative style">
+                        <span class="mode-emoji" aria-hidden="true"><i class="fa-solid fa-book-open"></i></span>
                         <span class="mode-name">Narrative</span>
                     </div>
-                    <div class="mode-card" data-mode="descriptive">
-                        <span class="mode-emoji"><i class="fa-solid fa-palette"></i></span>
+                    <div class="mode-card" data-mode="descriptive" role="radio" aria-checked="false" tabindex="0"
+                        aria-label="Descriptive style">
+                        <span class="mode-emoji" aria-hidden="true"><i class="fa-solid fa-palette"></i></span>
                         <span class="mode-name">Descriptive</span>
                     </div>
-                    <div class="mode-card" data-mode="formal">
-                        <span class="mode-emoji"><i class="fa-solid fa-user-tie"></i></span>
+                    <div class="mode-card" data-mode="formal" role="radio" aria-checked="false" tabindex="0"
+                        aria-label="Formal style">
+                        <span class="mode-emoji" aria-hidden="true"><i class="fa-solid fa-user-tie"></i></span>
                         <span class="mode-name">Formal</span>
                     </div>
-                    <div class="mode-card" data-mode="bullet">
-                        <span class="mode-emoji"><i class="fa-solid fa-list-check"></i></span>
+                    <div class="mode-card" data-mode="bullet" role="radio" aria-checked="false" tabindex="0"
+                        aria-label="Bullet points style">
+                        <span class="mode-emoji" aria-hidden="true"><i class="fa-solid fa-list-check"></i></span>
                         <span class="mode-name">Bullet Points</span>
                     </div>
-                    <div class="mode-card" data-mode="eli5">
-                        <span class="mode-emoji"><i class="fa-solid fa-child"></i></span>
+                    <div class="mode-card" data-mode="eli5" role="radio" aria-checked="false" tabindex="0"
+                        aria-label="Explain like I'm 5 style">
+                        <span class="mode-emoji" aria-hidden="true"><i class="fa-solid fa-child"></i></span>
                         <span class="mode-name">ExplainLikeIm5</span>
                     </div>
-                    <div class="mode-card" data-mode="analytical">
-                        <span class="mode-emoji"><i class="fa-solid fa-microscope"></i></span>
+                    <div class="mode-card" data-mode="analytical" role="radio" aria-checked="false" tabindex="0"
+                        aria-label="Analytical style">
+                        <span class="mode-emoji" aria-hidden="true"><i class="fa-solid fa-microscope"></i></span>
                         <span class="mode-name">Analytical</span>
                     </div>
-                    <div class="mode-card" data-mode="persuasive">
-                        <span class="mode-emoji"><i class="fa-solid fa-hand-fist"></i></span>
+                    <div class="mode-card" data-mode="persuasive" role="radio" aria-checked="false" tabindex="0"
+                        aria-label="Persuasive style">
+                        <span class="mode-emoji" aria-hidden="true"><i class="fa-solid fa-hand-fist"></i></span>
                         <span class="mode-name">Persuasive</span>
                     </div>
                 </div>
-            </div>
-            <div class="control-group">
-                <span class="control-label"><i class="fa-solid fa-ruler"></i> Summary Length</span>
-                <div class="length-selector">
-                    <button class="length-btn" data-length="short"><i class="fa-solid fa-compress"></i> Short</button>
-                    <button class="length-btn active" data-length="medium"><i class="fa-solid fa-arrows-left-right"></i>
+            </fieldset>
+            <fieldset class="control-group">
+                <legend class="control-label"><i class="fa-solid fa-ruler" aria-hidden="true"></i> Summary
+                    Length</legend>
+                <div class="length-selector" role="radiogroup" aria-label="Choose summary length">
+                    <button class="length-btn" data-length="short" role="radio" aria-checked="false"
+                        aria-label="Short summary length"><i class="fa-solid fa-compress" aria-hidden="true"></i>
+                        Short</button>
+                    <button class="length-btn active" data-length="medium" role="radio" aria-checked="true"
+                        aria-label="Medium summary length"><i class="fa-solid fa-arrows-left-right"
+                            aria-hidden="true"></i>
                         Medium</button>
-                    <button class="length-btn" data-length="long"><i class="fa-solid fa-expand"></i> Long</button>
+                    <button class="length-btn" data-length="long" role="radio" aria-checked="false"
+                        aria-label="Long summary length"><i class="fa-solid fa-expand" aria-hidden="true"></i>
+                        Long</button>
                 </div>
-            </div>
-        </div>
+            </fieldset>
+        </section>
 
         <!-- Text Input Card -->
-        <div class="prompt-card animate-in" style="animation-delay: 0.2s">
+        <article class="prompt-card animate-in" style="animation-delay: 0.2s" aria-labelledby="input-heading">
             <div class="card-header">
                 <div class="card-header-left">
-                    <span class="card-header-icon"><i class="fa-solid fa-file-alt"></i></span>
-                    <h3>Your Text</h3>
+                    <span class="card-header-icon" aria-hidden="true"><i class="fa-solid fa-file-alt"></i></span>
+                    <h2 id="input-heading" class="card-header-title">Your Text</h2>
                 </div>
-                <span class="char-count" id="charCount">0 chars</span>
+                <span class="char-count" id="charCount" aria-live="polite" aria-atomic="true">0 chars</span>
             </div>
+            <label for="textInput" class="sr-only">Enter text you want to summarize</label>
             <textarea class="prompt-textarea" id="textInput"
                 placeholder="Paste your long text here to summarize... Articles, essays, research papers, meeting notes, or any content you want to condense."
-                spellcheck="false" style="min-height: 220px;"></textarea>
+                spellcheck="false" style="min-height: 220px;" aria-describedby="summary-tip"></textarea>
             <div class="action-bar">
-                <div class="action-tips">
-                    <i class="fa-solid fa-lightbulb"></i> <span>Tip: Longer texts produce better summaries</span>
+                <div class="action-tips" id="summary-tip">
+                    <i class="fa-solid fa-lightbulb" aria-hidden="true"></i> <span>Tip: Longer texts produce better
+                        summaries</span>
                 </div>
-                <button class="enhance-btn" id="summarizeBtn" onclick="summarizeText()">
-                    <span class="btn-text"><i class="fa-solid fa-file-lines"></i> Summarize</span>
-                    <span class="btn-loader">
+                <button class="enhance-btn" id="summarizeBtn" onclick="summarizeText()"
+                    aria-label="Summarize your text using AI">
+                    <span class="btn-text"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Summarize</span>
+                    <span class="btn-loader" aria-hidden="true">
                         <span class="spinner"></span>
                         Summarizing...
                     </span>
                 </button>
             </div>
-        </div>
+        </article>
 
         <!-- Error Message -->
-        <div class="error-message" id="errorMsg">
-            <span><i class="fa-solid fa-triangle-exclamation"></i></span>
+        <aside class="error-message" id="errorMsg" role="alert" aria-live="assertive">
+            <span aria-hidden="true"><i class="fa-solid fa-triangle-exclamation"></i></span>
             <span id="errorText"></span>
-        </div>
+        </aside>
 
         <!-- Result Section -->
-        <div class="result-section" id="resultSection">
-            <div class="result-card">
+        <section class="result-section" id="resultSection" aria-labelledby="result-heading">
+            <article class="result-card">
                 <div class="result-header">
                     <div class="result-header-left">
-                        <span><i class="fa-solid fa-circle-check"></i></span>
-                        <h3>Summary Result</h3>
+                        <span aria-hidden="true"><i class="fa-solid fa-circle-check"></i></span>
+                        <h2 id="result-heading" class="result-title">Summary Result</h2>
                     </div>
                     <div class="result-actions">
-                        <button class="icon-btn" id="copyBtn" onclick="copyResult()" title="Copy to clipboard">
-                            <i class="fa-regular fa-clipboard"></i>
+                        <button class="icon-btn" id="copyBtn" onclick="copyResult()" title="Copy to clipboard"
+                            aria-label="Copy summary to clipboard">
+                            <i class="fa-regular fa-clipboard" aria-hidden="true"></i>
                         </button>
-                        <button class="icon-btn" onclick="downloadResult()" title="Download as text">
-                            <i class="fa-solid fa-download"></i>
+                        <button class="icon-btn" onclick="downloadResult()" title="Download as text"
+                            aria-label="Download summary as text file">
+                            <i class="fa-solid fa-download" aria-hidden="true"></i>
                         </button>
                     </div>
                 </div>
-                <div class="result-content" id="resultContent">
+                <div class="result-content" id="resultContent" aria-live="polite" role="region"
+                    aria-label="Text summary result">
                 </div>
-            </div>
-        </div>
+            </article>
+        </section>
 
     </main>
 
-    <!-- Toast -->
-    <div class="toast" id="toast">
-        <span id="toastIcon"></span>
+    <!-- Toast Notification -->
+    <div class="toast" id="toast" role="status" aria-live="polite">
+        <span id="toastIcon" aria-hidden="true"></span>
         <span id="toastText"></span>
     </div>
 
     <!-- Footer -->
-    <footer class="footer">
-        <p>Built with <i class="fa-solid fa-heart" style="color: #ef4444;"></i> using Gemini 2.5 Flash — <a
-                href="https://github.com/Royansesad/TextEnhance-Summary" target="_blank">Open Source</a></p>
+    <footer class="footer" role="contentinfo">
+        <p>Built with <i class="fa-solid fa-heart" style="color: #ef4444;" aria-label="love"></i> using Gemini 2.5
+            Flash — <a href="https://github.com/Royansesad/TextEnhance-Summary" target="_blank"
+                rel="noopener noreferrer">Open Source</a></p>
     </footer>
 
     <script src="../js/summary.js"></script>
